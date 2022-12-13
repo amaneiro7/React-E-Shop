@@ -1,11 +1,13 @@
 import React from 'react';
-import '../styles/RecoverPassword.scss'
+import '@styles/RecoverPassword.scss'
+
+import logo from "@logos/logo_yard_sale.svg";
 
 const RecoverPassword = () => {
     return (
         <div className="login">
             <div className="form-container">
-                <img src="../assets/logos/logo_yard_sale.svg" alt="logo" className="logo" />
+                <img src={logo} alt="logo" className="logo" />
                 <h1 className="title">Email has been sent!</h1>
                 <p className="subtitle">Please check your inbox for instructions on how to reset the password</p>
                 <div className="email-image">

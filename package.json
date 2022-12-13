@@ -39,5 +39,13 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaneiro7/React-E-Shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amaneiro7/React-E-Shop/issues"
+  },
+  "homepage": "https://github.com/amaneiro7/React-E-Shop#readme"
 }
