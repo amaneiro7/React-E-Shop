@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressPlugin = require('progress-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -14,6 +15,14 @@ module.exports = {
     mode: 'development',
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: {
+            '@components': path.resolve(__dirname, 'src/components/'),
+            '@containers': path.resolve(__dirname, 'src/containers/'),
+            '@pages': path.resolve(__dirname, 'src/pages/'),
+            "@styles": path.resolve(__dirname, "src/styles/"),
+            "@icons": path.resolve( __dirname, "src/assets/icons/"),
+            "@logos": path.resolve( __dirname, "src/assets/logos/")
+        },
     },
     module: {
         rules: [
@@ -41,7 +50,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+                test: /\.(png|svg|jp(e*)g|gif)$/,
+                use: [
+                    'file-loader'
+                ],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/fonts/[hash][ext]',
