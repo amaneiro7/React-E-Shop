@@ -745,3 +745,6 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,vs,react,reactnative,visualstudiocode,linux,macos
+
+#comitr la carpeta de los componentes iniciales
+curso-frontend-developer-practico/
