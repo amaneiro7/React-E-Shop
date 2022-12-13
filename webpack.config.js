@@ -9,6 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: '/',
     },
     mode: 'development',
     resolve: {
@@ -61,6 +62,14 @@ module.exports = {
                 {
                     from: path.resolve(__dirname, 'src', 'assets/images'),
                     to: 'assets/images',
+                },
+                {
+                    from: path.resolve(__dirname, 'src', 'assets/logos'),
+                    to: 'assets/logos',
+                },
+                {
+                    from: path.resolve(__dirname, 'src', 'assets/icons'),
+                    to: 'assets/icons',
                 }
             ]
         }),
@@ -69,6 +78,7 @@ module.exports = {
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
+        historyApiFallback: true,
         port: 3005,
     }
 }

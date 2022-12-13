@@ -1,0 +1,108 @@
+@import './breakpoints';
+
+$fuente1: 'Space Mono', monospace;
+$fuente2: 'Inconsolata', monospace;
+$fuente3: 'Montserrat', sans-serif;
+$color-oscuro: #333333;
+$color-oscuro-secundario: #4f4f4f;
+$color-claro: #ffffff; 
+$color-claro-secundario: #BDBDBD;
+
+* {
+	box-sizing: border-box;
+}
+
+.page404 {    
+    display: grid;
+    padding: 0 1.5rem;
+}
+
+.header {
+    width: 100%;
+    height: auto;    
+    margin-bottom: 4rem;
+    @include media(tablet) {
+        margin: 0 0 160px 0;
+    }
+    &__title {
+        font-family: $fuente2;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.6rem;
+        letter-spacing: -0.08rem;
+        text-transform: uppercase;
+        color: $color-oscuro;
+    }
+}
+
+.main {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    min-height: 70vh;    
+    margin-bottom: 114px;
+    @include media(tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+    &__image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        img {
+            width: 90%;
+            overflow: hidden;
+        }
+    }
+    &__section {
+        font-family: $fuente1;
+        letter-spacing: -0.03;
+        &__title {
+            font-weight: 700;
+            font-size: 3rem;
+            line-height: 4.5rem;
+            margin-bottom: 30px;
+        }
+        &__info {
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.7rem;
+            margin-bottom: 66px;
+        }
+        &__btn {
+            width: 216px;
+            height: 68px;
+            background: #333333;
+            border: none;
+            color: $color-claro;
+            font-weight: 700;
+            font-size: 0.8rem;
+            line-height: 1.3rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            &:hover {
+                border: 1px solid $color-oscuro-secundario;
+            }
+        }
+    }
+}
+
+.footer {
+    
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-bottom: 24px;
+    &__info {
+        font-family: $fuente3;
+        font-weight: 500;
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+        text-align: center;
+        color: $color-claro-secundario;
+    }
+    span {
+        font-weight: 700;
+    }
+}

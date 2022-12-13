@@ -7,19 +7,21 @@ import {
 import Layout from '../containers/Layout';
 import Login from '../containers/Login';
 import RecoverPassword from '../containers/RecoverPassword';
-import '../styles/global.css'
+import Home from '../pages/Home';
+import NotFound from '../pages/NotFound';
+import '../styles/global.css';
 
 const App = () => {
     return (
         <BrowserRouter>
-            <Routes>
-                <Layout>
+            <Layout>
+                <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/Login" element={<Login />} />
                     <Route path="/recovery-password" element={<RecoverPassword />} />
                     <Route path='*' element={<NotFound />} />
-                </Layout>
-            </Routes>            
+                </Routes>            
+            </Layout>
         </BrowserRouter> 
     );
 }
