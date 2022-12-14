@@ -2,7 +2,7 @@ import React from 'react';
 import OrderItem from '@components/OrderItem';
 import '@styles/MyOrder.scss';
 
-import flechita from "@assets/icons/flechita.svg"
+import flechita from "@icons/flechita.svg"
 
 const MyOrder = () => {
 	return (

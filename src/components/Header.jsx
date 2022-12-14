@@ -1,23 +1,40 @@
 import React, { useState } from 'react';
 import "@styles/Header.scss";
-import Menu from '@components/Menu'
+import DesktopMenu from '@components/DesktopMenu'
+import MobileMenu from '@components/MobileMenu'
+import MyOrder from '../containers/MyOrder'
 import logo from '@logos/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 
 
 const Header = () => {
-    const [toggle, setToggle]  = useState(false);
+    const [toggleDesktopMenu, setToggleDesktopMenu]  = useState(false);
+    const [toggleMobileMenu, setToggleMobileMenu]  = useState(false);
+    const [toggleMyOrder, setToggleMyOrder]  = useState(false);
 
-    const handleToggle = () => {
-        setToggle(!toggle);
+    const handleDesktopMenu = () => {
+        setToggleDesktopMenu(!toggleDesktopMenu);
+        setToggleMobileMenu(false);
+        setToggleMyOrder(false);
+    }
+    
+    const handleMobileMenu = () => {
+        setToggleMobileMenu(!toggleMobileMenu);
+        setToggleDesktopMenu(false);
+        setToggleMyOrder(false);
+    }
+    const handleMyOrder = () => {
+        setToggleMyOrder(!toggleMyOrder);
+        setToggleDesktopMenu(false);
+        setToggleMobileMenu(false);
     }
 
     return (
         <nav>
-            <img src={menu} alt="menu" className="menu" />
+            <img src={menu} alt="menu" className="menu" onClick={handleMobileMenu}/>
             <div className="navbar-left">
-                <img src={logo} alt="logo" className="logo" />
+                <img src={logo} alt="logo" className="navbar-logo" />
                 <ul>
                     <li>
                         <a href="/">All</a>
@@ -41,16 +58,18 @@ const Header = () => {
             </div>
             <div className="navbar-right">
                 <ul>
-                    <li className="navbar-email" onClick={handleToggle}>
+                    <li className="navbar-email" onClick={handleDesktopMenu}>
                         platzi@example.com
                         </li>
                     <li className="navbar-shopping-cart">
-                    <img src={shoppingCart} alt="shopping cart" />
+                    <img src={shoppingCart} alt="shopping cart" onClick={handleMyOrder}/>
                     <div>2</div>
                     </li>
                 </ul>
             </div>
-            {toggle ? <Menu /> : ""}            
+            {toggleDesktopMenu ? <DesktopMenu /> : ""}
+            {toggleMobileMenu ? <MobileMenu /> : ""}
+            {toggleMyOrder ? <MyOrder /> : ""}
         </nav>
         
     );

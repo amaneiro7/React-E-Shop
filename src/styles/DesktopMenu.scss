@@ -1,5 +1,5 @@
 
-.Menu {
+.DesktopMenu {
 	width: 100px;
 	height: auto;
 	border: 1px solid var(--very-light-pink);
@@ -10,27 +10,27 @@
 	right: 50px;
 	background-color: var(--white);
 }
-.Menu ul {
+.DesktopMenu ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-.Menu ul li {
+.DesktopMenu ul li {
 	text-align: end;
 }
-.Menu ul li:nth-child(1),
-.Menu ul li:nth-child(2) {
+.DesktopMenu ul li:nth-child(1),
+.DesktopMenu ul li:nth-child(2) {
 	font-weight: bold;
 }
-.Menu ul li:last-child {
+.DesktopMenu ul li:last-child {
 	padding-top: 20px;
 	border-top: 1px solid var(--very-light-pink);
 }
-.Menu ul li:last-child a {
+.DesktopMenu ul li:last-child a {
 	color: var(--hospital-green);
 	font-size: var(--sm);
 }
-.Menu ul li a {
+.DesktopMenu ul li a {
 	color: var(--back);
 	text-decoration: none;
 	margin-bottom: 20px;
