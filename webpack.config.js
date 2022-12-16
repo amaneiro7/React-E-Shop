@@ -4,15 +4,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressPlugin = require('progress-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const devServerConfig = {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    open: true,
+    port: 3005,
+    client: {
+        progress: true,
+    }
+};
 
-module.exports = {
+
+module.exports = (env, {mode}) => ({
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'bundle[contentHash].js',
         publicPath: '/',
+        clean: (mode === 'production' ? true : false),
     },
-    mode: 'development',
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
@@ -20,6 +31,7 @@ module.exports = {
             '@containers': path.resolve(__dirname, 'src/containers/'),
             '@hooks': path.resolve(__dirname, 'src/hooks/'),
             '@pages': path.resolve(__dirname, 'src/pages/'),
+            '@context': path.resolve(__dirname, 'src/context/'),
             "@styles": path.resolve(__dirname, "src/styles/"),
             "@icons": path.resolve( __dirname, "src/assets/icons/"),
             "@logos": path.resolve( __dirname, "src/assets/logos/")
@@ -45,6 +57,7 @@ module.exports = {
             {
                 test: /\.(css|scss)$/,
                 use: [
+                    // MiniCssExtractPlugin.loader,
                     "style-loader",
                     "css-loader",
                     "sass-loader"
@@ -52,9 +65,10 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jp(e*)g|gif)$/,
-                use: [
-                    'file-loader'
-                ],
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'assets/images'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -73,28 +87,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src', 'assets/images'),
-                    to: 'assets/images',
-                },
-                {
-                    from: path.resolve(__dirname, 'src', 'assets/logos'),
-                    to: 'assets/logos',
-                },
-                {
-                    from: path.resolve(__dirname, 'src', 'assets/icons'),
-                    to: 'assets/icons',
-                }
-            ]
-        }),
         new ProgressPlugin(true),
     ],
-    devServer: {
-        static: path.join(__dirname, 'dist'),
-        compress: true,
-        historyApiFallback: true,
-        port: 3005,
-    }
-}
+    devServer: (mode === 'development' ? devServerConfig : {})
+    
+    
+})
