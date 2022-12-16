@@ -4,7 +4,6 @@ import {
     Routes, 
     Route 
 } from 'react-router-dom';
-import '@styles/global.css';
 import Layout from '@containers/Layout';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
@@ -22,7 +21,7 @@ import useInitialState from '@hooks/useInitialState';
 const App = () => {
     const initialState = useInitialState();
     return (
-        <AppContext.Provider value={initialState }>
+        <AppContext.Provider value={ initialState }>
             <BrowserRouter>
                 <Layout>
                     <Routes>

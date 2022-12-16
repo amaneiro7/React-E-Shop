@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/NewPassword.scss';
+
 
 import logo from "@logos/logo_yard_sale.svg";
 
