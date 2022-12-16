@@ -10386,7 +10386,7 @@ var useGetProducts = function useGetProducts(API) {
 
 
 
-var API = 'http://api.escuelajs.co/api/v1/products';
+var API = 'https://api.escuelajs.co/api/v1/products';
 var ProductList = function ProductList() {
   var products = hooks_useGetProducts(API);
   return /*#__PURE__*/react.createElement("section", {
