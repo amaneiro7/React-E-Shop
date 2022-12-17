@@ -12379,36 +12379,36 @@ var App = function App() {
   return /*#__PURE__*/react.createElement(context_AppContext.Provider, {
     value: initialState
   }, /*#__PURE__*/react.createElement(BrowserRouter, {
-    basename: "/React-E-Shop/"
+    basename: "/React-E-Shop"
   }, /*#__PURE__*/react.createElement(containers_Layout, null, /*#__PURE__*/react.createElement(Routes, null, /*#__PURE__*/react.createElement(Route, {
     path: "/",
     element: /*#__PURE__*/react.createElement(pages_Home, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/Home",
+    path: "/#Home",
     element: /*#__PURE__*/react.createElement(pages_Home, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/Login",
+    path: "/#Login",
     element: /*#__PURE__*/react.createElement(pages_Login, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/recovery-password",
+    path: "/#recovery-password",
     element: /*#__PURE__*/react.createElement(pages_RecoverPassword, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/send-email",
+    path: "/#send-email",
     element: /*#__PURE__*/react.createElement(pages_SendEmail, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/new.password",
+    path: "/#new.password",
     element: /*#__PURE__*/react.createElement(pages_NewPassword, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/account",
+    path: "/#account",
     element: /*#__PURE__*/react.createElement(pages_MyAccount, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/signup",
+    path: "/#signup",
     element: /*#__PURE__*/react.createElement(pages_CreateAccount, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/checkout",
+    path: "/#checkout",
     element: /*#__PURE__*/react.createElement(pages_Checkout, null)
   }), /*#__PURE__*/react.createElement(Route, {
-    path: "/orders",
+    path: "/#orders",
     element: /*#__PURE__*/react.createElement(pages_Orders, null)
   }), /*#__PURE__*/react.createElement(Route, {
     path: "*",
