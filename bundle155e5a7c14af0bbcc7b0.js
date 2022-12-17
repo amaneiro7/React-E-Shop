@@ -12378,7 +12378,9 @@ var App = function App() {
   var initialState = hooks_useInitialState();
   return /*#__PURE__*/react.createElement(context_AppContext.Provider, {
     value: initialState
-  }, /*#__PURE__*/react.createElement(BrowserRouter, null, /*#__PURE__*/react.createElement(containers_Layout, null, /*#__PURE__*/react.createElement(Routes, null, /*#__PURE__*/react.createElement(Route, {
+  }, /*#__PURE__*/react.createElement(BrowserRouter, {
+    basename: "/React-E-Shop/"
+  }, /*#__PURE__*/react.createElement(containers_Layout, null, /*#__PURE__*/react.createElement(Routes, null, /*#__PURE__*/react.createElement(Route, {
     path: "/",
     element: /*#__PURE__*/react.createElement(pages_Home, null)
   }), /*#__PURE__*/react.createElement(Route, {
