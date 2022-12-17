@@ -67,7 +67,7 @@ module.exports = (env, {mode}) => ({
             {
                 test: /\.(css|scss)$/,
                 use: [                    
-                    //'postcss-loader', // post process the compiled CSS
+                    'style-loader', // post process the compiled CSS
                     'css-loader',
                     'sass-loader', // compiles Sass to CSS, using Node Sass by Default
                 ]
@@ -93,27 +93,27 @@ module.exports = (env, {mode}) => ({
             template: './public/index.html',
             filename: './index.html'
         }),
-        // new MiniCssExtractPlugin({
-        //     filename: 'assets/[name].[contenthash].css'
-        // }),
+        new MiniCssExtractPlugin({
+            filename: 'assets/[name][contenthash].css'
+        }),
         new ProgressPlugin(true),   
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, "src", "assets/images"),
-                    to: "assets/images"
-                },
-                {
-                    from: path.resolve(__dirname, "src", "assets/icons"),
-                    to: "assets/icons"
-                },
-                {
-                    from: path.resolve(__dirname, "src", "assets/logos"),
-                    to: "assets/logos"
-                }
+        // new CopyPlugin({
+        //     patterns: [
+        //         {
+        //             from: path.resolve(__dirname, "src", "assets/images"),
+        //             to: "assets/images"
+        //         },
+        //         {
+        //             from: path.resolve(__dirname, "src", "assets/icons"),
+        //             to: "assets/icons"
+        //         },
+        //         {
+        //             from: path.resolve(__dirname, "src", "assets/logos"),
+        //             to: "assets/logos"
+        //         }
 
-            ]
-        })     
+        //     ]
+        // })     
     ],
     devServer: (mode === 'development' ? devServerConfig : {}),
     optimization: (mode === 'production' ? optimizationConfig : {})

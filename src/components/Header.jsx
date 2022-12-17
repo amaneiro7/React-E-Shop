@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import '@styles/Header.scss';
 
 import DesktopMenu from '@components/DesktopMenu'
 import MobileMenu from '@components/MobileMenu'

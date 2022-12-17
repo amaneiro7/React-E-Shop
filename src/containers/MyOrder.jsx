@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
-
+import '@styles/MyOrder.scss'
 import flechita from "@icons/flechita.svg"
 
 const MyOrder = () => {
