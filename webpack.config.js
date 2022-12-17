@@ -40,7 +40,7 @@ module.exports = (env, {mode}) => ({
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle[contenthash].js',
-        publicPath: '/',
+        publicPath: (mode === 'production' ? './' : '/'),
         clean: (mode === 'production' ? true : false),
     },
     resolve: {
