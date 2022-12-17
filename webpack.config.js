@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressPlugin = require('progress-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const devServerConfig = {
@@ -96,24 +95,7 @@ module.exports = (env, {mode}) => ({
         new MiniCssExtractPlugin({
             filename: 'assets/[name][contenthash].css'
         }),
-        new ProgressPlugin(true),   
-        // new CopyPlugin({
-        //     patterns: [
-        //         {
-        //             from: path.resolve(__dirname, "src", "assets/images"),
-        //             to: "assets/images"
-        //         },
-        //         {
-        //             from: path.resolve(__dirname, "src", "assets/icons"),
-        //             to: "assets/icons"
-        //         },
-        //         {
-        //             from: path.resolve(__dirname, "src", "assets/logos"),
-        //             to: "assets/logos"
-        //         }
-
-        //     ]
-        // })     
+        new ProgressPlugin(true),           
     ],
     devServer: (mode === 'development' ? devServerConfig : {}),
     optimization: (mode === 'production' ? optimizationConfig : {})
