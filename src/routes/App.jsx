@@ -22,10 +22,11 @@ const App = () => {
     const initialState = useInitialState();
     return (
         <AppContext.Provider value={ initialState }>
-            <BrowserRouter>
+            <BrowserRouter basename='/React-E-Shop/'>
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/Home" element={<Home />} />
                         <Route path="/Login" element={<Login />} />
                         <Route path="/recovery-password" element={<RecoverPassword />} />
                         <Route path='/send-email' element={<SendEmail />} />
