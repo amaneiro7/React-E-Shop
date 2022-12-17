@@ -24,7 +24,8 @@ const aliases = {
     '@context': path.resolve(__dirname, 'src/context/'),
     "@styles": path.resolve(__dirname, "src/styles/"),
     "@icons": path.resolve( __dirname, "src/assets/icons/"),
-    "@logos": path.resolve( __dirname, "src/assets/logos/")
+    "@logos": path.resolve( __dirname, "src/assets/logos/"),
+    "@fonts": path.resolve( __dirname, "src/assets/fonts/")
 }
 
 const optimizationConfig = {
@@ -65,20 +66,21 @@ module.exports = (env, {mode}) => ({
             },
             {
                 test: /\.(css|scss)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
+                use: [                    
+                    //'postcss-loader', // post process the compiled CSS
                     'css-loader',
-                    'postcss-loader', // post process the compiled CSS
                     'sass-loader', // compiles Sass to CSS, using Node Sass by Default
-                    //'style-loader', // creates style nodes from JS strings
                 ]
             },
             {
                 test: /\.(png|svg|jp(e*)g|gif)$/,
-                type: 'asset/resource',  
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[hash][ext]',
+                }
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                test: /\.(woff|woff2|eot|ttf)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/fonts/[hash][ext]',
@@ -91,9 +93,9 @@ module.exports = (env, {mode}) => ({
             template: './public/index.html',
             filename: './index.html'
         }),
-        new MiniCssExtractPlugin({
-            filename: 'assets/[name].[contenthash].css'
-        }),
+        // new MiniCssExtractPlugin({
+        //     filename: 'assets/[name].[contenthash].css'
+        // }),
         new ProgressPlugin(true),   
         new CopyPlugin({
             patterns: [
