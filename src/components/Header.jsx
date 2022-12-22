@@ -1,5 +1,9 @@
 import React, { useState, useContext } from 'react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+import '@styles/Header.scss';
+>>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
 
 import DesktopMenu from '@components/DesktopMenu'
 import MobileMenu from '@components/MobileMenu'

@@ -1,7 +1,8 @@
 import React, { useCallback, useContext } from 'react';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
-import { Link } from 'react-router-dom'
+import '@styles/MyOrder.scss';
+import { Link } from 'react-router-dom';
 
 
 import flechita from "@icons/flechita.svg"

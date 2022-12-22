@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressPlugin = require('progress-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const devServerConfig = {
@@ -24,7 +23,8 @@ const aliases = {
     '@context': path.resolve(__dirname, 'src/context/'),
     "@styles": path.resolve(__dirname, "src/styles/"),
     "@icons": path.resolve( __dirname, "src/assets/icons/"),
-    "@logos": path.resolve( __dirname, "src/assets/logos/")
+    "@logos": path.resolve( __dirname, "src/assets/logos/"),
+    "@fonts": path.resolve( __dirname, "src/assets/fonts/")
 }
 
 const optimizationConfig = {
@@ -39,8 +39,13 @@ module.exports = (env, {mode}) => ({
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+<<<<<<< HEAD
         filename: 'bundle[contenthash].js',        
         publicPath: '/',       
+=======
+        filename: 'bundle[contenthash].js',
+        publicPath: (mode === 'production' ? './' : '/'),
+>>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
         clean: (mode === 'production' ? true : false),
     },
     resolve: {
@@ -66,20 +71,21 @@ module.exports = (env, {mode}) => ({
             },
             {
                 test: /\.(css|scss)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
+                use: [                    
+                    'style-loader', // post process the compiled CSS
                     'css-loader',
-                    'postcss-loader', // post process the compiled CSS
                     'sass-loader', // compiles Sass to CSS, using Node Sass by Default
-                    //'style-loader', // creates style nodes from JS strings
                 ]
             },
             {
                 test: /\.(png|svg|jp(e*)g|gif)$/,
-                type: 'asset/resource',  
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[hash][ext]',
+                }
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                test: /\.(woff|woff2|eot|ttf)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/fonts/[hash][ext]',
@@ -93,26 +99,9 @@ module.exports = (env, {mode}) => ({
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/[name].[contenthash].css'
+            filename: 'assets/[name][contenthash].css'
         }),
-        new ProgressPlugin(true),   
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, "src", "assets/images"),
-                    to: "assets/images"
-                },
-                {
-                    from: path.resolve(__dirname, "src", "assets/icons"),
-                    to: "assets/icons"
-                },
-                {
-                    from: path.resolve(__dirname, "src", "assets/logos"),
-                    to: "assets/logos"
-                }
-
-            ]
-        })     
+        new ProgressPlugin(true),           
     ],
     devServer: (mode === 'development' ? devServerConfig : {}),
     optimization: (mode === 'production' ? optimizationConfig : {})

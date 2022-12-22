@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import AppContext from '@context/AppContext'
-
-import close from "@icons/icon_close.png"
+import '@styles/OrderItem.scss';
+import AppContext from '@context/AppContext';
+import close from "@icons/icon_close.png";
 
 
 const OrderItem = ({ product, indexValue }) => {
