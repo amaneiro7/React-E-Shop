@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import DesktopMenu from '@components/DesktopMenu'
 import MobileMenu from '@components/MobileMenu'
@@ -36,7 +37,9 @@ const Header = () => {
         <nav>
             <img src={menu} alt="menu" className="menu" onClick={handleMobileMenu}/>
             <div className="navbar-left">
-                <img src={logo} alt="logo" className="navbar-logo" />
+                <Link to={'/'}>
+                    <img src={logo} alt="logo" className="navbar-logo" />
+                </Link>
                 <ul>
                     <li>
                         <a href="/">All</a>
