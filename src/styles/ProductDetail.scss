@@ -2,8 +2,14 @@
 	.ProductDetail {
 		width: 360px;
 		padding-bottom: 24px;
+		position: absolute;		
 		position: absolute;
+		top: 61px;
 		right: 0;
+		border: 1px solid var(--very-light-pink);
+		border-radius: 6px;
+		background-color: var(--white);
+		z-index: 10;
 	}
 	.ProductDetail-close {
 		background: var(--white);

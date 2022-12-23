@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '@styles/Header.scss';
 
-import DesktopMenu from '@components/DesktopMenu'
-import MobileMenu from '@components/MobileMenu'
-import MyOrder from '@containers/MyOrder'
+import DesktopMenu from '@components/DesktopMenu';
+import MobileMenu from '@components/MobileMenu';
+import MyOrder from '@containers/MyOrder';
 import logo from '@logos/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
