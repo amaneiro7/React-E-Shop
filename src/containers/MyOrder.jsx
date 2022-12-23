@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
 import '@styles/MyOrder.scss';
@@ -10,17 +10,18 @@ import flechita from "@icons/flechita.svg"
 const MyOrder = () => {
 	const { state } = useContext(AppContext);
 
-	const sumTotal = () => {
-		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-		const sum = state.cart.reduce(reducer, 0);
-		return sum;
-	}
+const sumTotal = () => {
+	const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+	const sum = state.cart.reduce(reducer, 0);
+	return sum;
+}
+
 
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
 				<img src={flechita} alt="arrow" />
-				<p className="title">My order</p>
+				<p className="title">Shopping cart</p>
 			</div>
 			<div className="my-order-content">
 				{state.cart.map((product, index) => (
@@ -34,7 +35,7 @@ const MyOrder = () => {
 					<p>
 						<span>Total</span>
 					</p>
-					<p>${sumTotal()}</p>
+					<p>${sumTotal()}</p>					
 				</div>
 				<Link to='/checkout'>
 					<button className="primary-button">

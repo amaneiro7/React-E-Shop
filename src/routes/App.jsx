@@ -20,14 +20,13 @@ import useInitialState from '@hooks/useInitialState';
 import '@styles/globals.css'
 
 const App = () => {
-    const initialState = useInitialState();
+    const initialState = useInitialState();    
     return (
         <AppContext.Provider value={ initialState }>
             <BrowserRouter basename='/React-E-Shop'>
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />} />
-<<<<<<< HEAD
                         <Route path="/Home" element={<Home />} />
                         <Route path="/Login" element={<Login />} />
                         <Route path="/recovery-password" element={<RecoverPassword />} />
@@ -37,17 +36,6 @@ const App = () => {
                         <Route path='/signup' element={<CreateAccount />} />
                         <Route path='/checkout' element={<Checkout />} />
                         <Route path='/orders' element={<Orders />} />
-=======
-                        <Route path="/#Home" element={<Home />} />
-                        <Route path="/#Login" element={<Login />} />
-                        <Route path="/#recovery-password" element={<RecoverPassword />} />
-                        <Route path='/#send-email' element={<SendEmail />} />
-                        <Route path='/#new.password' element={<NewPassword />} />
-                        <Route path='/#account' element={<MyAccount />} />
-                        <Route path='/#signup' element={<CreateAccount />} />
-                        <Route path='/#checkout' element={<Checkout />} />
-                        <Route path='/#orders' element={<Orders />} />
->>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
                         <Route path='*' element={<NotFound />} />
                     </Routes>            
                 </Layout>

@@ -4,7 +4,7 @@ const initialState = {
     cart: [],
 }
 
-const useInitialState = () => {
+const useInitialState = () => {  
     const [state, setState] = useState(initialState);
 
     const addToCart = (payload) => {
@@ -24,8 +24,8 @@ const useInitialState = () => {
     return {
         state, 
         addToCart,
-        removeFromCart
-    }
-}
+        removeFromCart,
+    };
+};
 
 export default useInitialState;

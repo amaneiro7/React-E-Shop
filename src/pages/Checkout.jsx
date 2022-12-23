@@ -9,7 +9,7 @@ const Checkout = () => {
 	
 	const sumTotal = () => {
 		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-		const sum = state.cart.reduce(reducer, 0);
+		const sum = state.cart.reduce(reducer, 0);		
 		return sum;
 	}
 
@@ -26,13 +26,17 @@ const Checkout = () => {
 							<span>{date}</span>
 							<span>{state.cart.length}</span>
 						</p>
-						<p>${sumTotal}</p>
+						<p>${sumTotal()}</p>
 					</div>
-				</div>
+				</div>				
+				{state.cart.map((product, index) => (
+					<OrderItem 
+						indexValue={index}
+						key={index}
+						product={product} 
+					/>
+				))}			
 				
-				{
-					console.log(state.cart.product)
-				/* {<OrderItem />} */}
 			</div>
 		</div>
 	);

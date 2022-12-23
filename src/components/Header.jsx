@@ -1,9 +1,6 @@
 import React, { useState, useContext } from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
 import '@styles/Header.scss';
->>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
 
 import DesktopMenu from '@components/DesktopMenu'
 import MobileMenu from '@components/MobileMenu'
@@ -14,11 +11,14 @@ import shoppingCart from '@icons/icon_shopping_cart.svg';
 import AppContext from '@context/AppContext';
 
 
+
 const Header = () => {
+	const { state } = useContext(AppContext)
+
     const [toggleDesktopMenu, setToggleDesktopMenu]  = useState(false);
     const [toggleMobileMenu, setToggleMobileMenu]  = useState(false);
-    const [toggleMyOrder, setToggleMyOrder]  = useState(false);    
-    const { state } = useContext(AppContext);
+    const [toggleMyOrder, setToggleMyOrder]  = useState(false);
+    
 
     const handleDesktopMenu = () => {
         setToggleDesktopMenu(!toggleDesktopMenu);
@@ -37,8 +37,9 @@ const Header = () => {
         setToggleMobileMenu(false);
     }
 
+    
     return (
-        <nav>
+        <nav>            
             <img src={menu} alt="menu" className="menu" onClick={handleMobileMenu}/>
             <div className="navbar-left">
                 <Link to={'/'}>
@@ -69,10 +70,10 @@ const Header = () => {
                 <ul>
                     <li className="navbar-email" onClick={handleDesktopMenu}>
                         platzi@example.com
-                        </li>
-                    <li className="navbar-shopping-cart">
-                    <img src={shoppingCart} alt="shopping cart" onClick={handleMyOrder}/>
-                    {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+                    </li>
+                    <li className="navbar-shopping-cart" onClick={handleMyOrder}>
+                    <img src={shoppingCart} alt="shopping cart" />
+                        {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
                     </li>
                 </ul>
             </div>

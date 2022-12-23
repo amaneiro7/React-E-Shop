@@ -39,13 +39,8 @@ module.exports = (env, {mode}) => ({
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-<<<<<<< HEAD
-        filename: 'bundle[contenthash].js',        
-        publicPath: '/',       
-=======
         filename: 'bundle[contenthash].js',
         publicPath: (mode === 'production' ? './' : '/'),
->>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
         clean: (mode === 'production' ? true : false),
     },
     resolve: {
