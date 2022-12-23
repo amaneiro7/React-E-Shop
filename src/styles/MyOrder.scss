@@ -13,14 +13,15 @@
 }
 .title-container {
 	display: flex;
-	img {
+	align-items: center;
+	img {		
 		transform: rotate(180deg);
 		margin-right: 14px;
+	}
+	.title__myOrder {	
+		font-size: var(--lg);
+		font-weight: bold;
 }
-}
-.title {
-	font-size: var(--lg);
-	font-weight: bold;
 }
 .order {
 	display: grid;

@@ -3,23 +3,23 @@ import AppContext from '@context/AppContext';
 import addToCartImg from "@icons/bt_add_to_cart.svg";
 import '@styles/ProductInfo.scss';
 
-const ProductInfo = (product) => {
+const ProductInfo = (info) => {
 	const { addToCart } = useContext(AppContext);
-	console.log(product.product);
-
+	const productDetail = info.info.detail
+		
 	const handleClick = item => {
 		addToCart(item);
 	}
 	return (
 		<>
-			<img src={product.product.images[0]} alt={product.product.title} />
+			<img src={productDetail.images[0]} alt={productDetail.title} />
 			<div className="ProductInfo">
-				<p>${product.product.price}</p>
-				<p>{product.product.title}</p>
-				<p>{product.product.description}</p>
+				<p>${productDetail.price}</p>
+				<p>{productDetail.title}</p>
+				<p>{productDetail.description}</p>
 				<button 
 					className="primary-button add-to-cart-button" 
-					onClick={() => handleClick(product.product)}>
+					onClick={() => handleClick(productDetail)}>
 						<img src={addToCartImg} alt="add to cart" />
 					Add to cart
 				</button>

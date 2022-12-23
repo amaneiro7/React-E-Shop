@@ -21,7 +21,7 @@ const sumTotal = () => {
 		<aside className="MyOrder">
 			<div className="title-container">
 				<img src={flechita} alt="arrow" />
-				<p className="title">Shopping cart</p>
+				<p className="title__myOrder">Shopping cart</p>
 			</div>
 			<div className="my-order-content">
 				{state.cart.map((product, index) => (
