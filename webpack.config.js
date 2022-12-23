@@ -5,10 +5,10 @@ const ProgressPlugin = require('progress-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const devServerConfig = {
-    static: path.join(__dirname, 'dist'),
+    static: path.join(__dirname, 'dist',),
     compress: true,
     historyApiFallback: true,
-    open: true,
+    open: ['/react-e-shop'],
     port: 3005,
     client: {
         progress: true,
@@ -40,7 +40,7 @@ module.exports = (env, {mode}) => ({
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle[contenthash].js',
-        publicPath: (mode === 'production' ? './' : '/'),
+        publicPath: (mode === 'production' ? './' : '/React-E-Shop'),
         clean: (mode === 'production' ? true : false),
     },
     resolve: {
