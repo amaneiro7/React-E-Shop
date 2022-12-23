@@ -1,8 +1,0 @@
-.ProductList {
-  padding: 0 16px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  gap: 26px;
-  place-content: center;
-  margin: 3em 0 0 0;
-}/*# sourceMappingURL=ProductList.css.map */
