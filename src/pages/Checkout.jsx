@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderItem from '@components/OrderItem';
-import '@styles/Checkout.scss'
+import AppContext from '@context/AppContext';
 
 
 const Checkout = () => {
+
+	const { state } = useContext(AppContext)
+	
+	const sumTotal = () => {
+		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+		const sum = state.cart.reduce(reducer, 0);
+		return sum;
+	}
+
+	const current = new Date();
+	const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
 	return (
 		<div className="Checkout">
 			<div className="Checkout-container">
@@ -11,13 +23,16 @@ const Checkout = () => {
 				<div className="Checkout-content">
 					<div className="order">
 						<p>
-							<span>03.25.21</span>
-							<span>6 articles</span>
+							<span>{date}</span>
+							<span>{state.cart.length}</span>
 						</p>
-						<p>$560.00</p>
+						<p>${sumTotal}</p>
 					</div>
 				</div>
-				<OrderItem />
+				
+				{
+					console.log(state.cart.product)
+				/* {<OrderItem />} */}
 			</div>
 		</div>
 	);

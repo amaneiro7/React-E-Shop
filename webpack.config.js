@@ -39,6 +39,7 @@ module.exports = (env, {mode}) => ({
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle[contenthash].js',                
         filename: 'bundle[contenthash].js',
         publicPath: (mode === 'production' ? './' : '/React-E-Shop'),
         clean: (mode === 'production' ? true : false),

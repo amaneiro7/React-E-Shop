@@ -1,5 +1,9 @@
 import React, { useState, useContext } from 'react';
+<<<<<<< HEAD
+import { Link } from 'react-router-dom';
+=======
 import '@styles/Header.scss';
+>>>>>>> 7adcaf6320637693476978fc29cbfc7f48f16a5f
 
 import DesktopMenu from '@components/DesktopMenu'
 import MobileMenu from '@components/MobileMenu'
@@ -37,7 +41,9 @@ const Header = () => {
         <nav>
             <img src={menu} alt="menu" className="menu" onClick={handleMobileMenu}/>
             <div className="navbar-left">
-                <img src={logo} alt="logo" className="navbar-logo" />
+                <Link to={'/'}>
+                    <img src={logo} alt="logo" className="navbar-logo" />
+                </Link>
                 <ul>
                     <li>
                         <a href="/">All</a>

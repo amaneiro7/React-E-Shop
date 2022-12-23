@@ -1,7 +1,10 @@
 import React, { useCallback, useContext } from 'react';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
-import '@styles/MyOrder.scss'
+import '@styles/MyOrder.scss';
+import { Link } from 'react-router-dom';
+
+
 import flechita from "@icons/flechita.svg"
 
 const MyOrder = () => {
@@ -33,9 +36,11 @@ const MyOrder = () => {
 					</p>
 					<p>${sumTotal()}</p>
 				</div>
-				<button className="primary-button">
-					Checkout
-				</button>
+				<Link to='/checkout'>
+					<button className="primary-button">
+						Checkout
+					</button>
+				</Link>
 			</div>
 		</aside>
 	);
