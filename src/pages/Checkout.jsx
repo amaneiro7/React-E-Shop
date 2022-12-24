@@ -8,10 +8,13 @@ const Checkout = () => {
 	const { state } = useContext(AppContext)
 	
 	const sumTotal = () => {
-		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-		const sum = state.cart.reduce(reducer, 0);		
-		return sum;
-	}
+		let sum = 0	
+		state.cart.forEach(sumPrice => {
+			sum += sumPrice.price			
+		});	
+		return sum
+	};
+	
 
 	const current = new Date();
 	const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
